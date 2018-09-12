@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
 
 class Product extends Component {
   render() {
+    const { formatMessage } = this.props.intl;
     return (
       <div>
         <Helmet>
-          <title>产品页</title>
+          <title>
+            {formatMessage({
+              id: "product"
+            })}
+          </title>
         </Helmet>
-        产品页
+        <FormattedMessage id="productPage" />
       </div>
     );
   }
 }
 
-export default Product;
+Product.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(Product);

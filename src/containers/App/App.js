@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../shared/Header";
+import Header from "../shared/Header/Header";
 
 class App extends Component {
   render() {

@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
 
 class Download extends Component {
   render() {
+    const { formatMessage } = this.props.intl;
     return (
       <div>
         <Helmet>
-          <title>下载页</title>
+          <title>
+            {formatMessage({
+              id: "download"
+            })}
+          </title>
         </Helmet>
-        下载页
+        <FormattedMessage id="downloadPage" />
       </div>
     );
   }
 }
 
-export default Download;
+Download.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(Download);

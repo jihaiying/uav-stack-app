@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./containers/App/App";
+import ForI18n from "./containers/ForI18n/ForI18n";
 import registerServiceWorker from "./registerServiceWorker";
-import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import rootReducer from "./reducers/index";
+import { createStore } from "redux";
+
+let store = createStore(rootReducer);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <ForI18n />
+  </Provider>,
   document.getElementById("root")
 );
 registerServiceWorker();
