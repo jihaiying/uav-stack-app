@@ -1,0 +1,21 @@
+.container {
+  height: 782px;
+  background: url("./bannerBac1.jpg") center;
+  background-size: cover;
+  padding-top: 156px;
+}
+.center {
+  width: 1440px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 24px;
+  color: #fff;
+  line-height: 40px;
+}
+.descCon li {
+  margin-top: 16px;
+  font-size: 18px;
+  color: #fff;
+  line-height: 24px;
+}

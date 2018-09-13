@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import App from "../App/App";
+import App from "../App/";
 import { IntlProvider } from "react-intl";
 import zh_CN from "../../i18n/zh_CN";
 import en_US from "../../i18n/en_US";
@@ -27,11 +27,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ForI18n);
+export default connect(mapStateToProps)(ForI18n);

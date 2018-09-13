@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import Home from "../../Home/Home";
-import Product from "../../Product/Product";
-import Download from "../../Download/Download";
-import NoMatch from "../../NoMatch/NoMatch";
+import Home from "../../Home";
+import Product from "../../Product";
+import Download from "../../Download/";
+import NoMatch from "../../NoMatch";
 import LanguageSwitchBtn from "./partial/LanguageSwitchBtn";
 import { FormattedMessage } from "react-intl";
 
