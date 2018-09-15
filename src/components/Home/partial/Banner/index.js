@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import "./assets/Banner.css";
+import css from "./assets/Banner.css";
 
 class Banner extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="center">
-          <p className="title">
+      <div className={css.container}>
+        <div className={css.center}>
+          <p className={css.title}>
             UAV.Monitor：是业务，应用/服务，基础三维一体的监控平台，同时支持单体架构，SOA架构，微服务架构。
             <br />
             只需部署1个Agent即可采集全维度数据，支持物理机，虚拟机，Docker。
           </p>
-          <ul className="descCon">
+          <ul className={css.descCon}>
             <li>
               ●
               基础监控：操作系统以及进程级性能指标（CPU，内存，连接数，网络流量，磁盘IO等）

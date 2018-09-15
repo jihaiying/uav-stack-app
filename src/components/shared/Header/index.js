@@ -6,11 +6,12 @@ import Download from "../../Download/";
 import NoMatch from "../../NoMatch";
 import LanguageSwitchBtn from "./partial/LanguageSwitchBtn";
 import { FormattedMessage } from "react-intl";
+import css from "./assets/Header.css";
 
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className={css.container}>
         <Link to={"/"}>
           <FormattedMessage id="home" />
         </Link>
