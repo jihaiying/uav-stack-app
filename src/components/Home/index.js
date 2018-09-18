@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
 import Banner from "./partial/Banner";
+import Header from "../shared/Header";
 
 class Home extends Component {
   render() {
@@ -13,6 +14,7 @@ class Home extends Component {
             id: "home"
           })}
         />
+        <Header />
         <Banner />
       </div>
     );
