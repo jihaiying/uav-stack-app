@@ -1,0 +1,27 @@
+.container {
+  border-radius: 2px;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.title {
+  font-family: PingFangSC-Regular;
+  font-size: 36px;
+  color: #333333;
+  letter-spacing: 0;
+}
+.img {
+  margin-top: 50px;
+  width: 1250px;
+}
+.line {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  width: 50px;
+  height: 2px;
+  border: none;
+  background-color: #69c1ed;
+}

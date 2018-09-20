@@ -21,6 +21,18 @@ const en_US = {
     "●多次线程Dump文件关联分析：基于时序的线程状态变迁，线程等待链路时序根因关系",
   banner_2_word_3: "●线程Dump可视化展示：",
   banner_2_word_3_desc_1: "-单次线程Dump可视化（锁依赖）",
-  banner_2_word_3_desc_2: "-多次线程Dump可视化（含时序状态，锁依赖）"
+  banner_2_word_3_desc_2: "-多次线程Dump可视化（含时序状态，锁依赖）",
+
+  updateTab_update:
+    "<p>UAVStack周更新 </p>" +
+    '<a href="https://github.com/uavorg/uavstack/releases/tag/UAVStack_1.2_20180914">' +
+    "https://github.com/uavorg/uavstack/releases/tag/UAVStack_1.2_20180914 </a>" +
+    "<p>1. 新增 增加采集主机所有IP地址、子网掩码等网卡信息的功能。</p>" +
+    "<p>2. 新增 增加SpringBoot2.0以上版本对context-path配置的支持。</p>",
+
+  updateTab_fix:
+    " <p>FIX同步: </p>" +
+    " <p>1.  FIX  修正了由应用重复注册Filter或Servlet导致的NPE问题<p>" +
+    " <p>2.  FIX  修正了自定义指标在某些情况下不显示的问题。</p>"
 };
 export default en_US;

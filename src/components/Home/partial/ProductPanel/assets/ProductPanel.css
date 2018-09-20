@@ -1,0 +1,38 @@
+.container {
+  background: #f7f8fa;
+  border-radius: 2px;
+  width: 100%;
+  text-align: center;
+}
+.content {
+  width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #f7f8fa;
+  padding: 20px;
+}
+.divider {
+  height: 30px;
+}
+.line {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  width: 50px;
+  height: 2px;
+  border: none;
+  background-color: #69c1ed;
+}
+.tab1 {
+  width: 100%;
+}
+.title {
+  font-size: 36px;
+  color: #333333;
+  letter-spacing: 0;
+}
+.tip {
+  font-size: 14px;
+  color: #9b9b9b;
+  letter-spacing: 0;
+}
