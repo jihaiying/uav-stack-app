@@ -5,9 +5,15 @@ import ForI18n from "./components/ForI18n";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/index";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunkMiddleware from "redux-thunk";
+import apiMiddleware from "./middleware/api";
 
-let store = createStore(
+let middlewares = [thunkMiddleware, apiMiddleware];
+
+const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
+
+let store = createStoreWithMiddleware(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
