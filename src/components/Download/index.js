@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import Header from "../shared/Header";
 
 class Download extends Component {
   render() {
@@ -14,6 +15,7 @@ class Download extends Component {
             })}
           </title>
         </Helmet>
+        <Header />
         <FormattedMessage id="downloadPage" />
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import Header from "../shared/Header";
 
 class Product extends Component {
   render() {
@@ -14,6 +15,7 @@ class Product extends Component {
             })}
           </title>
         </Helmet>
+        <Header />
         <FormattedMessage id="productPage" />
       </div>
     );
