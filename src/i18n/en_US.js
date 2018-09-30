@@ -21,6 +21,9 @@ const en_US = {
     "●多次线程Dump文件关联分析：基于时序的线程状态变迁，线程等待链路时序根因关系",
   banner_2_word_3: "●线程Dump可视化展示：",
   banner_2_word_3_desc_1: "-单次线程Dump可视化（锁依赖）",
-  banner_2_word_3_desc_2: "-多次线程Dump可视化（含时序状态，锁依赖）"
+  banner_2_word_3_desc_2: "-多次线程Dump可视化（含时序状态，锁依赖）",
+  pageTitle: {
+    log: "应用日志搜索"
+  }
 };
 export default en_US;

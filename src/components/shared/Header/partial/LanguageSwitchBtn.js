@@ -3,14 +3,15 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as languageActionCreator from "../../../../actions/language";
 import { LANGUAGES } from "../../../../config/enum";
+import Button from "antd/lib/button";
 
 class LanguageSwitchBtn extends Component {
   render() {
     const { lang, actions } = this.props;
     return (
-      <button onClick={actions.switchLanguage}>
+      <Button type="primary" onClick={actions.switchLanguage}>
         {lang === LANGUAGES.en ? "中文" : "English"}
-      </button>
+      </Button>
     );
   }
 }

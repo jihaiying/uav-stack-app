@@ -1,22 +1,24 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Loadable from "react-loadable";
-import Loading from "../shared/Loading";
+import { Spin } from "antd";
+
+import "antd/dist/antd.css";
 const HomeComponent = Loadable({
   loader: () => import("../Home"),
-  loading: Loading
+  loading: Spin
 });
-const DownloadComponent = Loadable({
-  loader: () => import("../Download"),
-  loading: Loading
+const Log = Loadable({
+  loader: () => import("../../pages/Log"),
+  loading: Spin
 });
 const NoMatchComponent = Loadable({
   loader: () => import("../NoMatch"),
-  loading: Loading
+  loading: Spin
 });
 const ProductComponent = Loadable({
   loader: () => import("../Product"),
-  loading: Loading
+  loading: Spin
 });
 
 class App extends Component {
@@ -26,7 +28,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomeComponent} />
           <Route path="/product" component={ProductComponent} />
-          <Route path="/download" component={DownloadComponent} />
+          <Route path="/log" component={Log} />
           <Route component={NoMatchComponent} />
         </Switch>
       </div>

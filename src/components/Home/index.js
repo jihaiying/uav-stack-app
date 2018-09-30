@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
-import Banner from "./partial/Banner";
-import Header from "../shared/Header";
+// import Banner from "./partial/Banner";
+// import Header from "../shared/Header";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as homeActions from "../../actions/api/home";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+
   componentDidMount() {
     this.getNews();
   }
@@ -19,6 +26,9 @@ class Home extends Component {
     };
     actions.getNews(params, ({ response }) => {
       console.log(response);
+      this.setState({
+        data: response
+      });
     });
   }
 
@@ -31,8 +41,8 @@ class Home extends Component {
             id: "home"
           })}
         />
-        <Header />
-        <Banner />
+        {/*<Header />*/}
+        {/*<Banner />*/}
       </div>
     );
   }
