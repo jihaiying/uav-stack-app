@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Loadable from "react-loadable";
 import { Spin } from "antd";
-
 import "antd/dist/antd.css";
 const HomeComponent = Loadable({
   loader: () => import("../Home"),

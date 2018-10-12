@@ -1,0 +1,16 @@
+.logoCon {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logoImg {
+  width: 32px;
+  height: 32px;
+}
+.logoWord {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-left: 12px;
+}

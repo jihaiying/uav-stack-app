@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
-// import Banner from "./partial/Banner";
-// import Header from "../shared/Header";
+import Banner from "./partial/Banner";
+import Header from "../shared/Header";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as homeActions from "../../actions/api/home";
@@ -25,7 +25,6 @@ class Home extends Component {
       page_size: 3
     };
     actions.getNews(params, ({ response }) => {
-      console.log(response);
       this.setState({
         data: response
       });
@@ -34,6 +33,7 @@ class Home extends Component {
 
   render() {
     const { formatMessage } = this.props.intl;
+    const { data } = this.state;
     return (
       <div>
         <Helmet
@@ -41,8 +41,13 @@ class Home extends Component {
             id: "home"
           })}
         />
-        {/*<Header />*/}
-        {/*<Banner />*/}
+        <Header />
+        <Banner />
+        {data.map((item, key) => (
+          <div key={key} style={{ fontWeight: "bold" }}>
+            {item.title}
+          </div>
+        ))}
       </div>
     );
   }
