@@ -1,10 +1,14 @@
-## 本地安装步骤
+## 项目命名
+
+因原版名为 com.creditease.uav.console，所以新版命名为 com.creditease.uav.console.v2，即第二版。
+
+## 本地安装
 
 1. 安装 node v8.11.3
-2. git clone https://github.com/jihaiying/uav-stack.git
-3. cd uav-stack
-4. npm install
-5. npm start
+2. 更新 http://gitlab.creditease.corp/fundamental-research-pioneer-team/ce-datamonitorsystem/tree/master
+3. WebStorm 打开其中的 com.creditease.uav.console.v2 目录
+4. yarn install
+5. yarn start
 
 ## 技术点
 
