@@ -1,38 +1,53 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
 import { Spin } from "antd";
 import "antd/dist/antd.css";
-const HomeComponent = Loadable({
-  loader: () => import("../Home"),
+import { getToken } from "../../lib/token";
+const LoginComponent = Loadable({
+  loader: () => import("../../pages/Login"),
   loading: Spin
 });
-const Log = Loadable({
-  loader: () => import("../../pages/Log"),
+const AppHubComponent = Loadable({
+  loader: () => import("../../pages/AppHub"),
+  loading: Spin
+});
+const GodEyeComponent = Loadable({
+  loader: () => import("../../pages/GodEye"),
+  loading: Spin
+});
+const BetaTestComponent = Loadable({
+  loader: () => import("../../pages/BetaTest"),
+  loading: Spin
+});
+const LogComponent = Loadable({
+  loader: () => import("../../pages/GodEye/Log"),
   loading: Spin
 });
 const NoMatchComponent = Loadable({
-  loader: () => import("../NoMatch"),
-  loading: Spin
-});
-const ProductComponent = Loadable({
-  loader: () => import("../Product"),
+  loader: () => import("../../pages/NoMatch"),
   loading: Spin
 });
 
 class App extends Component {
+  componentDidMount() {
+    if (!getToken()) {
+      // this.props.history.push("/login");
+    }
+  }
+
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={HomeComponent} />
-          <Route path="/product" component={ProductComponent} />
-          <Route path="/log" component={Log} />
-          <Route component={NoMatchComponent} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/login" component={LoginComponent} />
+        <Route exact path="/appHub" component={AppHubComponent} />
+        <Route path="/appHub/godEye" component={GodEyeComponent} />
+        <Route path="/appHub/betaTest" component={BetaTestComponent} />
+        <Route path="/appHub/log" component={LogComponent} />
+        <Route component={NoMatchComponent} />
+      </Switch>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
