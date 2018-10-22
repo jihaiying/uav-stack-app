@@ -1,5 +1,5 @@
 let config = {
-  API_BASE_URL: "http://api.fang88.me"
+  API_BASE_URL: "http://localhost:3004"
 };
 
 export default config;
