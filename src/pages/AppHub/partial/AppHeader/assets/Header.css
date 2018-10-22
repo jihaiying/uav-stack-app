@@ -1,0 +1,34 @@
+.center {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  color: white;
+}
+.left {
+  display: flex;
+  float: left;
+  align-items: center;
+}
+.right {
+  display: flex;
+  float: right;
+  align-items: center;
+}
+.logo {
+  display: inline-block;
+  width: 32px;
+}
+.title {
+  margin-left: 6px;
+  font-size: 18px;
+}
+.userIcon {
+  margin-left: 12px;
+}
+.userName {
+  margin-left: 2px;
+}
+.logout {
+  margin-left: 12px;
+  color: white;
+}

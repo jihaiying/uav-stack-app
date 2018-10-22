@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as languageActionCreator from "../../../../actions/language";
-import { LANGUAGES } from "../../../../config/enum";
+import * as languageActionCreator from "../../../../../actions/language";
+import { LANGUAGES } from "../../../../../config/enum";
 import Button from "antd/lib/button";
 
 class LanguageSwitchBtn extends Component {

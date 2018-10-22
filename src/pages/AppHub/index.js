@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
-import AppHeader from "../../components/shared/AppHeader";
-import { Link } from "react-router-dom";
+import AppHeader from "./partial/AppHeader";
 import appHubManageIcon from "./assets/appHubManageIcon.png";
 import basicClusterManageIcon from "./assets/basicClusterManageIcon.png";
 import componentTestingIcon from "./assets/componentTestingIcon.png";
@@ -12,7 +11,8 @@ import godEyesIcon from "./assets/godEyesIcon.png";
 import privateBetaIcon from "./assets/betaTestIcon.png";
 import serviceGovernanceManageIcon from "./assets/serviceGovernanceManageIcon.png";
 import upgradeManageIcon from "./assets/upgradeManageIcon.png";
-import { Layout, List, Avatar } from "antd";
+import { Layout } from "antd";
+import AppTag from "./partial/AppTag";
 const { Content } = Layout;
 const data = [
   {
@@ -76,24 +76,10 @@ class AppHub extends Component {
         />
         <AppHeader />
         <Layout>
-          <Content>
-            <div style={{ width: "600px", margin: "0 auto" }}>
-              <List
-                itemLayout="horizontal"
-                dataSource={data}
-                size="large"
-                renderItem={item => (
-                  <List.Item>
-                    <List.Item.Meta
-                      avatar={
-                        <Avatar src={item.icon} shape="square" size="large" />
-                      }
-                      title={<Link to={item.link}>{item.title}</Link>}
-                    />
-                  </List.Item>
-                )}
-              />
-            </div>
+          <Content style={{ height: "100vh", paddingTop: "64px" }}>
+            {data.map((item, key) => (
+              <AppTag data={item} key={key} />
+            ))}
           </Content>
         </Layout>
       </div>
