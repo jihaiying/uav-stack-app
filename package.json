@@ -81,6 +81,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.10.0",
     "faker": "^4.1.0",
     "husky": "^1.0.0-rc.13",
     "lint-staged": "^7.2.0",
@@ -125,7 +126,14 @@
       "react-app"
     ],
     "plugins": [
-      "syntax-dynamic-import"
+      "syntax-dynamic-import",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": "css"
+        }
+      ]
     ]
   },
   "eslintConfig": {

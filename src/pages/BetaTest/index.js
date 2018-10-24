@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Spin } from "antd/lib/index";
+import { Spin } from "antd";
 import Loadable from "react-loadable";
 import { appData } from "./appData";
 import { Layout } from "antd";

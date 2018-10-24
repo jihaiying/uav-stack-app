@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as languageActionCreator from "../../../../../actions/language";
 import { LANGUAGES } from "../../../../../config/enum";
-import Button from "antd/lib/button";
+import { Button } from "antd";
 
 class LanguageSwitchBtn extends Component {
   render() {

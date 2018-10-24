@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
 import { Spin } from "antd";
-import "antd/dist/antd.css";
 import { getToken } from "../../lib/token";
 const LoginComponent = Loadable({
   loader: () => import("../../pages/Login"),

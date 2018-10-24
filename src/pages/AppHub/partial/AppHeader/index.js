@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 import css from "./assets/Header.css";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";
-import { Layout, Icon } from "antd/lib/index";
+import { Layout, Icon } from "antd";
 const { Header } = Layout;
 
 class AppHeader extends Component {

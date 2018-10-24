@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout } from "antd/lib/index";
+import { Layout } from "antd";
 const { Content } = Layout;
 
 class Welcome extends Component {
