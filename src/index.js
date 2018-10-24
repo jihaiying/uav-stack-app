@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import ForI18n from "./components/ForI18n";
+import ForI18n from "./pages/ForI18n";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/index";

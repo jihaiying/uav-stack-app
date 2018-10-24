@@ -4,7 +4,7 @@ import Loading from "../../components/Loading";
 import Loadable from "react-loadable";
 import { appData } from "./appData";
 import { Layout } from "antd";
-import LeftNav from "../../components/shared/LeftNav/index";
+import LeftNav from "../../components/LeftNav/index";
 const WelcomeComponent = Loadable({
   loader: () => import("../../components/Welcome"),
   loading: Loading
