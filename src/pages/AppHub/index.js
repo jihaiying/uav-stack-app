@@ -68,11 +68,9 @@ class AppHub extends Component {
     return (
       <div>
         <Helmet
-          title={
-            formatMessage({
-              id: "pageTitle"
-            }).appHub
-          }
+          title={formatMessage({
+            id: "pageTitle.appHub"
+          })}
         />
         <AppHeader />
         <Layout>

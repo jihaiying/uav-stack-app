@@ -21,13 +21,7 @@ class Login extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div style={{ paddingTop: "200px" }}>
-        <Helmet
-          title={
-            formatMessage({
-              id: "pageTitle"
-            }).login
-          }
-        />
+        <Helmet title={formatMessage({ id: "pageTitle.login" })} />
         <Form
           onSubmit={this.handleSubmit}
           className="login-form"

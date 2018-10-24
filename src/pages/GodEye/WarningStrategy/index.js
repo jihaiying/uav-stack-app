@@ -101,11 +101,9 @@ class WarningStrategy extends Component {
     return (
       <Layout>
         <Helmet
-          title={
-            formatMessage({
-              id: "pageTitle"
-            }).warningStrategy
-          }
+          title={formatMessage({
+            id: "pageTitle.warningStrategy"
+          })}
         />
         <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>

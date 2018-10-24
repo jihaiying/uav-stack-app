@@ -10,11 +10,9 @@ class Log extends Component {
     return (
       <Layout>
         <Helmet
-          title={
-            formatMessage({
-              id: "pageTitle"
-            }).log
-          }
+          title={formatMessage({
+            id: "pageTitle.log"
+          })}
         />
         <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
