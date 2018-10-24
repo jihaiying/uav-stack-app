@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import LanguageSwitchBtn from "./partial/LanguageSwitchBtn";
-import { FormattedMessage } from "react-intl";
 import css from "./assets/Header.css";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";

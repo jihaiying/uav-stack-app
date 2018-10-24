@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Spin } from "antd";
+import Loading from "../../components/Loading";
 import Loadable from "react-loadable";
 import { appData } from "./appData";
 import { Layout } from "antd";
 import LeftNav from "../../components/shared/LeftNav/index";
 const WelcomeComponent = Loadable({
   loader: () => import("../../components/Welcome"),
-  loading: Spin
+  loading: Loading
 });
 const LogComponent = Loadable({
   loader: () => import("../GodEye/Log"),
-  loading: Spin
+  loading: Loading
 });
 const WarningStrategyComponent = Loadable({
   loader: () => import("../GodEye/WarningStrategy"),
-  loading: Spin
+  loading: Loading
 });
 const NoMatchComponent = Loadable({
   loader: () => import("../NoMatch"),
-  loading: Spin
+  loading: Loading
 });
 
 class BetaTest extends Component {

@@ -1,31 +1,31 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
-import { Spin } from "antd";
+import Loading from "../Loading";
 import { getToken } from "../../lib/token";
 const LoginComponent = Loadable({
   loader: () => import("../../pages/Login"),
-  loading: Spin
+  loading: Loading
 });
 const AppHubComponent = Loadable({
   loader: () => import("../../pages/AppHub"),
-  loading: Spin
+  loading: Loading
 });
 const GodEyeComponent = Loadable({
   loader: () => import("../../pages/GodEye"),
-  loading: Spin
+  loading: Loading
 });
 const BetaTestComponent = Loadable({
   loader: () => import("../../pages/BetaTest"),
-  loading: Spin
+  loading: Loading
 });
 const LogComponent = Loadable({
   loader: () => import("../../pages/GodEye/Log"),
-  loading: Spin
+  loading: Loading
 });
 const NoMatchComponent = Loadable({
   loader: () => import("../../pages/NoMatch"),
-  loading: Spin
+  loading: Loading
 });
 
 class App extends Component {

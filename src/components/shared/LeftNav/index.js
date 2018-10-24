@@ -33,7 +33,7 @@ class LeftNav extends Component {
         <Menu
           theme="dark"
           mode="inline"
-          selectedKeys={this.props.location.pathname}
+          selectedKeys={[this.props.location.pathname]}
         >
           {appData.menu.map((item, key) => (
             <Menu.Item key={item.link}>

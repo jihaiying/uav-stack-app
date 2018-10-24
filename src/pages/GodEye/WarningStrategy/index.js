@@ -52,7 +52,7 @@ class WarningStrategy extends Component {
         {
           title: "",
           key: "action",
-          render: () => <a href="javascript:;">✕</a>
+          render: () => <div style={{ cursor: "pointer" }}>✕</div>
         }
       ]
     };
@@ -115,6 +115,7 @@ class WarningStrategy extends Component {
               components={this.components}
               columns={columns}
               dataSource={data}
+              rowKey="id"
             />
           </div>
         </Content>
