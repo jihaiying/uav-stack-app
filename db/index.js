@@ -1,8 +1,8 @@
-var generateStrategies = require("./strategies");
+var strategies = require("./strategies");
 
 function generateDB() {
   return {
-    strategies: generateStrategies()
+    strategies: strategies
   };
 }
 

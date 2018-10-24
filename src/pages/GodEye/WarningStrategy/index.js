@@ -84,7 +84,7 @@ class WarningStrategy extends Component {
     const params = {};
     actions.getStrategy(params, ({ response }) => {
       this.setState({
-        data: response
+        data: response.data
       });
     });
   }

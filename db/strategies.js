@@ -14,4 +14,10 @@ function generateStrategies() {
   });
 }
 
-module.exports = generateStrategies;
+var strategies = {
+  code: 200,
+  message: "成功",
+  data: generateStrategies()
+};
+
+module.exports = strategies;
