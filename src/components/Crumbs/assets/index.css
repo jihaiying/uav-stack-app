@@ -1,0 +1,35 @@
+.container {
+  height: 46px;
+  border-bottom: 1px solid #dddddd;
+}
+.crumbs {
+  height: 100%;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 18px;
+  line-height: 46px;
+}
+.right {
+  display: inline-flex;
+  height: 100%;
+  float: right;
+  font-size: 20px;
+  padding-right: 36px;
+  align-items: center;
+}
+:global(a) {
+  color: #888;
+}
+:global(a:hover) {
+  color: #60beca;
+}
+.quitIcon {
+  color: #888;
+  margin-left: 16px;
+  cursor: pointer;
+  transition: all, 0.2s;
+}
+.quitIcon:hover {
+  color: #60beca;
+}

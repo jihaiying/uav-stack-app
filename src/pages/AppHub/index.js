@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
-import AppHeader from "./partial/AppHeader";
+import AppHeader from "../../components/AppHeader";
 import appHubManageIcon from "./assets/appHubManageIcon.png";
 import basicClusterManageIcon from "./assets/basicClusterManageIcon.png";
 import componentTestingIcon from "./assets/componentTestingIcon.png";

@@ -4,7 +4,8 @@ import Loading from "../../components/Loading";
 import Loadable from "react-loadable";
 import { appData } from "./appData";
 import { Layout } from "antd";
-import LeftNav from "../../components/LeftNav/index";
+import AppHeader from "../../components/AppHeader/";
+import LeftNav from "../../components/LeftNav/";
 const WelcomeComponent = Loadable({
   loader: () => import("../../components/Welcome"),
   loading: Loading
@@ -26,8 +27,9 @@ class GodEye extends Component {
   render() {
     return (
       <div>
-        <Layout style={{ minHeight: "100vh" }}>
-          <LeftNav appData={appData} />
+        <AppHeader />
+        <Layout style={{ minHeight: "100vh", paddingTop: "52px" }}>
+          <LeftNav data={appData} />
           <Switch>
             <Route exact path="/appHub/godEye/" component={WelcomeComponent} />
             <Route path="/appHub/godEye/log" component={LogComponent} />

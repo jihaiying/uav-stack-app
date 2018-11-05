@@ -189,7 +189,7 @@ module.exports = {
             ]
           },
           {
-            test: /\.css$/,
+            test: /\.(css|less)$/,
             include: /node_modules|material-design-lite\.scss/,
             use: [
               require.resolve("style-loader"),
@@ -217,6 +217,17 @@ module.exports = {
                       flexbox: "no-2009"
                     })
                   ]
+                }
+              },
+              {
+                loader: require.resolve("less-loader"), // compiles Less to CSS
+                options: {
+                  modifyVars: {
+                    "primary-color": "#60BECA",
+                    "link-color": "#60BECA",
+                    "border-radius-base": "0"
+                  },
+                  javascriptEnabled: true
                 }
               }
             ]

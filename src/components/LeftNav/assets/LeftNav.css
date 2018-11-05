@@ -1,12 +1,32 @@
+.container {
+  border-right: 1px solid #ddd;
+  padding-top: 22px;
+  position: relative;
+}
+.collapseIcon {
+  font-size: 18px;
+  color: #9b9b9b;
+  position: absolute;
+  right: -14px;
+  top: 215px;
+  cursor: pointer;
+}
 .logoCon {
-  padding: 16px 0;
   display: flex;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #f7f7f7;
+  padding-left: 16px;
   align-items: center;
-  justify-content: center;
+  white-space: nowrap;
 }
 .logoWord {
-  font-size: 20px;
   font-weight: bold;
-  color: white;
-  margin-left: 12px;
+  color: #444444;
+  margin-left: 5px;
+}
+.menuIcon {
+  font-size: 18px;
+}
+.menuName {
+  font-size: 14px;
 }
