@@ -1,76 +1,177 @@
 import React, { Component } from "react";
-import { Button, Divider, Icon, Layout, Tag } from "antd";
+import { Button, Icon, Layout, Switch, Popconfirm, message, Input } from "antd";
 import Crumbs from "../../../../../components/Crumbs";
 import { Link } from "react-router-dom";
-import { Input } from "antd";
-import { Resizable } from "react-resizable";
 import { bindActionCreators } from "redux";
 import * as warningStrategyActions from "../../../../../actions/api/warningStrategy";
-import connect from "react-redux/es/connect/connect";
+import { connect } from "react-redux";
+import css from "./assets/index.css";
+import cx from "classnames";
+import TableComponent from "../../../../../components/TableComponent";
+import {
+  strategyType,
+  strategySystem
+} from "../../../../../lib/filters/strategy";
 const { Content } = Layout;
-const ResizeableTitle = props => {
-  const { onResize, width, ...restProps } = props;
-  if (!width) {
-    return <th {...restProps} />;
-  }
-  return (
-    <Resizable width={width} height={0} onResize={onResize}>
-      <th {...restProps} />
-    </Resizable>
-  );
-};
 
 class StrategyList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      crumbsData: {
+        crumbs: [
+          {
+            word: "预警策略管理"
+          }
+        ]
+      },
       data: [],
       columns: [
         {
-          title: "策略",
+          title: "策略名称",
           dataIndex: "name",
-          width: 100
+          width: "35%",
+          render: (text, record) => {
+            let className;
+            switch (text.type) {
+              case 1:
+                className = css.blue;
+                break;
+              case 2:
+                className = css.green;
+                break;
+              case 3:
+                className = css.cyan;
+                break;
+              case 4:
+                className = css.purple;
+                break;
+              default:
+                return className;
+            }
+            return (
+              <Link to={"/"}>
+                <div className={css.nameCon}>
+                  <div className={cx(css.type, className)}>
+                    {strategyType(text.type)}
+                  </div>
+                  {text.system && (
+                    <div className={css.system}>
+                      {strategySystem(text.system)}
+                    </div>
+                  )}
+                  {text.example && (
+                    <div className={css.example}>
+                      <span className={css.exampleLabel}>实例组: </span>
+                      {text.example}
+                    </div>
+                  )}
+                  {text.appID && (
+                    <div className={css.example}>
+                      <span className={css.exampleLabel}>应用ID: </span>
+                      {text.appID}
+                    </div>
+                  )}
+                  {text.log && (
+                    <div className={css.example}>
+                      <span className={css.exampleLabel}>指定日志: </span>
+                      {text.log}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            );
+          }
         },
         {
           title: "描述",
           dataIndex: "desc",
-          width: 500
+          width: "16%",
+          className: css.tdCon,
+          render: (text, record) => {
+            return (
+              <Link to={"/"}>
+                <span className={css.td}>{text}</span>
+              </Link>
+            );
+          }
         },
         {
           title: "归属用户",
           dataIndex: "email",
-          width: 150
+          width: "16%",
+          className: css.tdCon,
+          render: (text, record) => {
+            return (
+              <Link to={"/"}>
+                <span className={css.td}>{text}</span>
+              </Link>
+            );
+          }
         },
         {
           title: "修改时间",
           dataIndex: "date",
-          width: 250
+          width: "16%",
+          className: css.tdCon,
+          render: (text, record) => {
+            return (
+              <Link to={"/"}>
+                <span className={css.td}>{text}</span>
+              </Link>
+            );
+          }
         },
         {
-          title: "",
+          title: "预警启停",
+          width: "8%",
+          dataIndex: "date",
+          className: css.tdCon,
+          render: () => (
+            <div style={{ paddingLeft: "6px" }}>
+              <Switch
+                checkedChildren={<Icon type="check" />}
+                unCheckedChildren={<Icon type="close" />}
+                defaultChecked
+              />
+            </div>
+          )
+        },
+        {
+          title: (
+            <div>
+              操作
+              <Icon
+                type="exclamation-circle"
+                theme="filled"
+                style={{ color: "#BBBBBB", marginLeft: "4px" }}
+              />
+            </div>
+          ),
           key: "action",
-          render: () => <div style={{ cursor: "pointer" }}>✕</div>
+          width: "9%",
+          className: css.tdCon,
+          render: () => (
+            <div>
+              <Link to={"/"}>
+                <span className={css.operate}>复制</span>
+              </Link>
+              <Popconfirm
+                placement="topRight"
+                title="你确定删除这条配置吗？"
+                onConfirm={this.delete}
+                okText="确定"
+                cancelText="取消"
+                style={{ display: "inline-block" }}
+              >
+                <span className={css.operate}> 删除</span>
+              </Popconfirm>
+            </div>
+          )
         }
       ]
     };
   }
-
-  components = {
-    header: {
-      cell: ResizeableTitle
-    }
-  };
-
-  handleResize = index => (e, { size }) => {
-    this.setState(({ columns }) => {
-      const nextColumns = [...columns];
-      nextColumns[index] = {
-        ...nextColumns[index],
-        width: size.width
-      };
-      return { columns: nextColumns };
-    });
-  };
 
   componentDidMount() {
     this.getStrategy();
@@ -78,98 +179,19 @@ class StrategyList extends Component {
 
   getStrategy() {
     const { actions } = this.props;
-    const params = {};
-    actions.getStrategy(params, ({ response }) => {
+    actions.getStrategy({}, ({ response }) => {
       this.setState({
         data: response.data
       });
     });
   }
+
+  delete(id) {
+    message.info("已删除" + id);
+  }
+
   render() {
-    const { data } = this.state;
-    // const columns = this.state.columns.map((col, index) => ({
-    //   ...col,
-    //   onHeaderCell: column => ({
-    //     width: column.width,
-    //     onResize: this.handleResize(index)
-    //   })
-    // }));
-    // const columns = this.state.columns;
-
-    const columns = [
-      {
-        title: "Name",
-        dataIndex: "name",
-        key: "name",
-        render: text => <a href="javascript:;">{text}</a>
-      },
-      {
-        title: "Age",
-        dataIndex: "age",
-        key: "age"
-      },
-      {
-        title: "Address",
-        dataIndex: "address",
-        key: "address"
-      },
-      {
-        title: "Tags",
-        key: "tags",
-        dataIndex: "tags",
-        render: tags => (
-          <span>
-            {tags.map(tag => (
-              <Tag color="blue" key={tag}>
-                {tag}
-              </Tag>
-            ))}
-          </span>
-        )
-      },
-      {
-        title: "Action",
-        key: "action",
-        render: (text, record) => (
-          <span>
-            <a href="javascript:;">Invite {record.name}</a>
-            <Divider type="vertical" />
-            <a href="javascript:;">Delete</a>
-          </span>
-        )
-      }
-    ];
-
-    const data1 = [
-      {
-        key: "1",
-        name: "John Brown",
-        age: 32,
-        address: "New York No. 1 Lake Park",
-        tags: ["nice", "developer"]
-      },
-      {
-        key: "2",
-        name: "Jim Green",
-        age: 42,
-        address: "London No. 1 Lake Park",
-        tags: ["loser"]
-      },
-      {
-        key: "3",
-        name: "Joe Black",
-        age: 32,
-        address: "Sidney No. 1 Lake Park",
-        tags: ["cool", "teacher"]
-      }
-    ];
-    const crumbsData = {
-      crumbs: [
-        {
-          word: "预警策略管理"
-        }
-      ]
-    };
+    const { crumbsData, columns, data } = this.state;
     return (
       <div>
         <Crumbs data={crumbsData} />
@@ -186,17 +208,18 @@ class StrategyList extends Component {
               style={{ width: 334, float: "right" }}
               onSearch={value => console.log(value)}
             />
+            <Button style={{ float: "right", marginRight: "8px" }}>
+              <Icon type="appstore" />
+              显示全部
+            </Button>
             <div style={{ clear: "both" }} />
           </div>
-          <div style={{ minHeight: 600 }}>
-            {/*<Table columns={columns} dataSource={data1} />*/}
-            {/*<Table*/}
-            {/*// components={this.components}*/}
-            {/*columns={columns}*/}
-            {/*dataSource={data}*/}
-            {/*// rowKey="id"*/}
-            {/*/>*/}
-          </div>
+          <TableComponent
+            columns={this.state.columns}
+            dataSource={data}
+            rowKey="id"
+            reducedHeight={280}
+          />
         </Content>
       </div>
     );

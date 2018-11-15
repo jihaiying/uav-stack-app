@@ -1,0 +1,56 @@
+.nameCon {
+  font-size: 12px;
+  line-height: 20px;
+}
+.type {
+  width: 76px;
+  height: 22px;
+  border-radius: 11px;
+  margin-left: -2px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+.blue {
+  background: #e6f7ff;
+  border: 1px solid #91d5ff;
+  color: #319cff;
+}
+.green {
+  background: rgba(184, 233, 134, 0.13);
+  border: 1px solid rgba(151, 195, 100, 0.5);
+  color: #97c364;
+}
+.cyan {
+  background: #e6fffb;
+  border: 1px solid #87e8de;
+  color: #13c2c2;
+}
+.purple {
+  background: #f9f0ff;
+  border: 1px solid #d3adf7;
+  color: #722ed1;
+}
+.system {
+  margin-top: 2px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+.example {
+  color: #000;
+}
+.exampleLabel {
+  color: #9b9b9b;
+}
+.operate {
+  color: #009ce1;
+  cursor: pointer;
+}
+.tdCon {
+  vertical-align: top;
+}
+.td {
+  width: 100%;
+  height: 100%;
+  color: #4a4a4a;
+}

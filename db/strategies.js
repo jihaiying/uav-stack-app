@@ -6,10 +6,17 @@ function generateStrategies() {
   return _.times(20, function(index) {
     return {
       id: index,
-      name: faker.name.findName(),
-      desc: faker.lorem.sentence(),
+      name: {
+        type: faker.random.number({ min: 1, max: 4 }),
+        system: faker.random.number({ min: 1, max: 7 }),
+        example: faker.random.words(),
+        appID: faker.random.words(),
+        log: faker.random.words()
+      },
+      desc: faker.random.words(),
       email: faker.internet.email(),
-      date: faker.date.past()
+      date: faker.date.past(),
+      opened: true
     };
   });
 }
