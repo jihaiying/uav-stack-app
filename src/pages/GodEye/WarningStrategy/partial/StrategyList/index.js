@@ -215,7 +215,7 @@ class StrategyList extends Component {
             <div style={{ clear: "both" }} />
           </div>
           <TableComponent
-            columns={this.state.columns}
+            columns={columns}
             dataSource={data}
             rowKey="id"
             reducedHeight={280}

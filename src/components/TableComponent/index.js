@@ -65,7 +65,9 @@ class TableComponent extends Component {
     const pagination = {
       size: "small",
       total: dataSource.length,
-      showTotal: `总数 ${dataSource.length}`,
+      showTotal: function() {
+        return `总数 ${dataSource.length}`;
+      },
       showSizeChanger: true,
       showQuickJumper: true
     };
@@ -78,7 +80,7 @@ class TableComponent extends Component {
       })
     }));
 
-    const addedColumns = columnsTreated.unshift({
+    columnsTreated.unshift({
       title: "",
       dataIndex: "",
       width: "30px"
@@ -94,7 +96,7 @@ class TableComponent extends Component {
         rowClassName={css.tr}
         pagination={pagination}
         components={this.components}
-        columns={addedColumns}
+        columns={columnsTreated}
         dataSource={dataSource}
         rowKey={rowKey}
         scroll={{ y: height }}
