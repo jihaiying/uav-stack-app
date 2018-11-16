@@ -1,8 +1,10 @@
 var strategies = require("./strategies");
+var listTotal = require("./listTotal");
 
 function generateDB() {
   return {
-    strategies: strategies
+    strategies: strategies,
+    listTotal: listTotal
   };
 }
 

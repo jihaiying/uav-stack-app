@@ -36,6 +36,15 @@ const ResizeableTitle = props => {
 };
 
 class TableComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      total: 0,
+      data: [],
+      pageNum: 1
+    };
+  }
+
   components = {
     header: {
       cell: ResizeableTitle
@@ -53,20 +62,43 @@ class TableComponent extends Component {
     });
   };
 
+  componentDidMount() {
+    this.getTotal();
+    this.getData();
+  }
+
+  getTotal() {
+    const { getTotalFunc } = this.props;
+    const params = {};
+    getTotalFunc(params, ({ response }) => {
+      this.setState({
+        total: response.data.total
+      });
+    });
+  }
+
+  getData() {
+    const { getDataFunc } = this.props;
+    const { pageNum } = this.state;
+    const params = {
+      _page: pageNum
+    };
+    getDataFunc(params, ({ response }) => {
+      this.setState({
+        data: response
+      });
+    });
+  }
+
   render() {
-    const {
-      columns,
-      dataSource,
-      rowKey,
-      reducedHeight,
-      winHeight
-    } = this.props;
+    const { columns, rowKey, reducedHeight, winHeight } = this.props;
+    const { total, data } = this.state;
 
     const pagination = {
       size: "small",
-      total: dataSource.length,
+      total: total,
       showTotal: function() {
-        return `总数 ${dataSource.length}`;
+        return `总数 ${total}`;
       },
       showSizeChanger: true,
       showQuickJumper: true
@@ -97,7 +129,7 @@ class TableComponent extends Component {
         pagination={pagination}
         components={this.components}
         columns={columnsTreated}
-        dataSource={dataSource}
+        dataSource={data}
         rowKey={rowKey}
         scroll={{ y: height }}
       />

@@ -25,7 +25,6 @@ class StrategyList extends Component {
           }
         ]
       },
-      data: [],
       columns: [
         {
           title: "策略名称",
@@ -173,25 +172,13 @@ class StrategyList extends Component {
     };
   }
 
-  componentDidMount() {
-    this.getStrategy();
-  }
-
-  getStrategy() {
-    const { actions } = this.props;
-    actions.getStrategy({}, ({ response }) => {
-      this.setState({
-        data: response.data
-      });
-    });
-  }
-
   delete(id) {
     message.info("已删除" + id);
   }
 
   render() {
-    const { crumbsData, columns, data } = this.state;
+    const { actions } = this.props;
+    const { crumbsData, columns } = this.state;
     return (
       <div>
         <Crumbs data={crumbsData} />
@@ -216,7 +203,8 @@ class StrategyList extends Component {
           </div>
           <TableComponent
             columns={columns}
-            dataSource={data}
+            getTotalFunc={actions.getStrategyTotal}
+            getDataFunc={actions.getStrategy}
             rowKey="id"
             reducedHeight={280}
           />
@@ -234,7 +222,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
       {
-        getStrategy: warningStrategyActions.getStrategy
+        getStrategy: warningStrategyActions.getStrategy,
+        getStrategyTotal: warningStrategyActions.getStrategyTotal
       },
       dispatch
     )

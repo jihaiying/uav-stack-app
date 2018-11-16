@@ -21,10 +21,12 @@ function generateStrategies() {
   });
 }
 
-var strategies = {
-  code: 200,
-  message: "成功",
-  data: generateStrategies()
-};
+// var strategies = {
+//   code: 200,
+//   message: "成功",
+//   data: generateStrategies()
+// };
+
+var strategies = generateStrategies();
 
 module.exports = strategies;

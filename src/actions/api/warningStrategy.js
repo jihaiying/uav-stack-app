@@ -13,3 +13,17 @@ export function getStrategy(params, afterSuccess, afterError) {
     }
   };
 }
+
+export const GET_STRATEGY_TOTAL = Symbol("GET_STRATEGY_TOTAL");
+export function getStrategyTotal(params, afterSuccess, afterError) {
+  return {
+    [CALL_API]: {
+      method: "get",
+      body: params,
+      path: `/listTotal`,
+      successType: GET_STRATEGY_TOTAL,
+      afterSuccess,
+      afterError
+    }
+  };
+}
