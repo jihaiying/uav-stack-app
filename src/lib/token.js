@@ -3,11 +3,11 @@
  * Created by jihaiying on 2018/09/27.
  */
 export function getToken() {
-  let token = "";
+  let apphubtoken = "";
   try {
-    token = JSON.parse(window.localStorage.getItem("user")).token || "";
+    apphubtoken = window.localStorage.getItem("apphubtoken") || "";
   } catch (e) {}
-  return token;
+  return apphubtoken;
 }
 
 export function getUserInfo() {

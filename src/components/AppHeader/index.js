@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import LanguageSwitchBtn from "./partial/LanguageSwitchBtn";
-import css from "./assets/Header.css";
+import LanguageSwitchBtn from "./LanguageSwitchBtn/";
+import css from "./AppHeader.css";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";
 import { Layout, Icon } from "antd";
@@ -17,7 +17,7 @@ class AppHeader extends Component {
           </div>
         </Link>
         <div className={css.right}>
-          {/*<LanguageSwitchBtn />*/}
+          <LanguageSwitchBtn />
           <Icon type="user" theme="outlined" className={css.userIcon} />
           <span className={css.userName}>haiyingji@creditease.cn</span>
           <div className={css.logout}>

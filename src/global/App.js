@@ -1,30 +1,26 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
-import Loading from "../../components/Loading/index";
-import { getToken } from "../../lib/token";
+import Loading from "../components/Loading/index";
+import { getToken } from "../lib/token";
 const LoginComponent = Loadable({
-  loader: () => import("../Login/index"),
+  loader: () => import("../pages/Login/index"),
   loading: Loading
 });
 const AppHubComponent = Loadable({
-  loader: () => import("../AppHub/index"),
+  loader: () => import("../pages/AppHub/index"),
   loading: Loading
 });
 const GodEyeComponent = Loadable({
-  loader: () => import("../GodEye/index"),
+  loader: () => import("../pages/GodEye/index"),
   loading: Loading
 });
 const BetaTestComponent = Loadable({
-  loader: () => import("../BetaTest/index"),
-  loading: Loading
-});
-const LogComponent = Loadable({
-  loader: () => import("../GodEye/Log/index"),
+  loader: () => import("../pages/BetaTest/index"),
   loading: Loading
 });
 const NoMatchComponent = Loadable({
-  loader: () => import("../NoMatch/index"),
+  loader: () => import("../components/NoMatch/index"),
   loading: Loading
 });
 
@@ -42,7 +38,6 @@ class App extends Component {
         <Route exact path="/appHub" component={AppHubComponent} />
         <Route path="/appHub/godEye" component={GodEyeComponent} />
         <Route path="/appHub/betaTest" component={BetaTestComponent} />
-        <Route path="/appHub/log" component={LogComponent} />
         <Route component={NoMatchComponent} />
       </Switch>
     );

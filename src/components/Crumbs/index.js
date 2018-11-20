@@ -15,7 +15,7 @@
 import React, { Component } from "react";
 import { Breadcrumb, Icon } from "antd";
 import { withRouter, Link } from "react-router-dom";
-import css from "./assets/index.css";
+import css from "./Crumbs.css";
 
 class Crumbs extends Component {
   goBack() {

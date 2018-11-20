@@ -12,7 +12,7 @@ import privateBetaIcon from "./assets/betaTestIcon.png";
 import serviceGovernanceManageIcon from "./assets/serviceGovernanceManageIcon.png";
 import upgradeManageIcon from "./assets/upgradeManageIcon.png";
 import { Layout } from "antd";
-import AppTag from "./partial/AppTag";
+import AppTag from "./AppTag";
 const { Content } = Layout;
 const data = [
   {
@@ -69,7 +69,7 @@ class AppHub extends Component {
       <div>
         <Helmet
           title={formatMessage({
-            id: "pageTitle.appHub"
+            id: "appHub.pageTitle"
           })}
         />
         <AppHeader />

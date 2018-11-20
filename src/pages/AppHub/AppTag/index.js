@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import css from "./assets/index.css";
+import css from "./AppTag.css";
 
 class AppTag extends Component {
   render() {

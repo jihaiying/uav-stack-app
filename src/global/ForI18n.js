@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import App from "../App/";
+import App from "./App";
 import { IntlProvider } from "react-intl";
-import zh_CN from "../../i18n/zh_CN";
-import en_US from "../../i18n/en_US";
-import { LANGUAGES } from "../../config/enum";
+import zh_CN from "../i18n/zh_CN";
+import en_US from "../i18n/en_US";
+import { LANGUAGES } from "../config/enum";
 import { connect } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { runFitPage } from "../../lib/fitPage";
+import { runFitPage } from "../lib/fitPage";
 import { bindActionCreators } from "redux";
-import * as globalActions from "../../actions/global";
+import * as globalActions from "./globalActions";
 import { LocaleProvider } from "antd";
 import zh from "antd/lib/locale-provider/zh_CN";
 
@@ -34,7 +34,7 @@ class ForI18n extends Component {
 
 function mapStateToProps(state) {
   return {
-    lang: state.languageReducer.get("lang")
+    lang: state.globalReducer.get("lang")
   };
 }
 

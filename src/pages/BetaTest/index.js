@@ -18,7 +18,7 @@ const WarningStrategyComponent = Loadable({
   loading: Loading
 });
 const NoMatchComponent = Loadable({
-  loader: () => import("../NoMatch"),
+  loader: () => import("../../components/NoMatch"),
   loading: Loading
 });
 

@@ -4,20 +4,20 @@ import { injectIntl, intlShape } from "react-intl";
 import { Layout } from "antd";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as warningStrategyActions from "../../../actions/api/warningStrategy";
+import * as warningStrategyActions from "./api";
 import { Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import Loading from "../../../components/Loading";
 const StrategyListComponent = Loadable({
-  loader: () => import("./partial/StrategyList"),
+  loader: () => import("./StrategyList"),
   loading: Loading
 });
 const AddStrategyComponent = Loadable({
-  loader: () => import("./partial/AddStrategy"),
+  loader: () => import("./AddStrategy/"),
   loading: Loading
 });
 const NoMatchComponent = Loadable({
-  loader: () => import("../../NoMatch"),
+  loader: () => import("../../../components/NoMatch"),
   loading: Loading
 });
 class WarningStrategy extends Component {
@@ -27,7 +27,7 @@ class WarningStrategy extends Component {
       <Layout style={{ background: "white" }}>
         <Helmet
           title={formatMessage({
-            id: "pageTitle.warningStrategy"
+            id: "warningStrategy.pageTitle"
           })}
         />
         <Switch>

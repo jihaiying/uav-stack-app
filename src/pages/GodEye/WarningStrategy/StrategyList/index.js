@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import { Button, Icon, Layout, Switch, Popconfirm, message, Input } from "antd";
-import Crumbs from "../../../../../components/Crumbs";
+import Crumbs from "../../../../components/Crumbs";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
-import * as warningStrategyActions from "../../../../../actions/api/warningStrategy";
+import * as warningStrategyActions from "../api";
 import { connect } from "react-redux";
-import css from "./assets/index.css";
+import css from "./StrategyList.css";
 import cx from "classnames";
-import TableComponent from "../../../../../components/TableComponent";
-import {
-  strategyType,
-  strategySystem
-} from "../../../../../lib/filters/strategy";
+import TableComponent from "../../../../components/TableComponent";
+import { strategyType, strategySystem } from "./filter";
 const { Content } = Layout;
 
 class StrategyList extends Component {
@@ -124,7 +121,7 @@ class StrategyList extends Component {
         {
           title: "预警启停",
           width: "8%",
-          dataIndex: "date",
+          dataIndex: "opened",
           className: css.tdCon,
           render: () => (
             <div style={{ paddingLeft: "6px" }}>

@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import { withRouter } from "react-router-dom";
+import Storage from "../../lib/storage";
 const FormItem = Form.Item;
 
 class Login extends Component {
@@ -11,6 +12,7 @@ class Login extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        Storage.set("apphubtoken", "454575687124323472");
         this.props.history.push("/appHub");
       }
     });
@@ -21,7 +23,7 @@ class Login extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div style={{ paddingTop: "200px" }}>
-        <Helmet title={formatMessage({ id: "pageTitle.login" })} />
+        <Helmet title={formatMessage({ id: "login.pageTitle" })} />
         <Form
           onSubmit={this.handleSubmit}
           className="login-form"

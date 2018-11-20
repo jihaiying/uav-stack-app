@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as languageActionCreator from "../../../actions/language";
+import * as languageActionCreator from "../../../global/globalActions";
 import { LANGUAGES } from "../../../config/enum";
 import { Button } from "antd";
 
@@ -18,7 +18,7 @@ class LanguageSwitchBtn extends Component {
 
 function mapStateToProps(state) {
   return {
-    lang: state.languageReducer.get("lang")
+    lang: state.globalReducer.get("lang")
   };
 }
 

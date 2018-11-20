@@ -1,7 +1,7 @@
 import superAgent from "superagent";
 import Promise from "bluebird";
 import _ from "lodash";
-import config from "../config";
+import config from "../config/";
 import { getToken } from "../lib/token";
 import { defer } from "../lib/defer";
 
@@ -53,9 +53,9 @@ function createRequestPromise(apiActionCreator, next, getState, dispatch) {
     let params = extractParams(apiAction[CALL_API]);
 
     let url = params.url;
-    const token = getToken();
     superAgent[params.method](url)
-      .send({ ...params.body, token })
+      .set("apphubtoken", getToken())
+      .send({ ...params.body })
       .query(params.query)
       .end((err, res) => {
         if (res.type === "text/plain") {

@@ -13,7 +13,7 @@
 * */
 
 import React, { Component } from "react";
-import css from "./assets/TableComponent.css";
+import css from "./TableComponent.css";
 import { Table } from "antd";
 import { connect } from "react-redux";
 import { Resizable } from "react-resizable";

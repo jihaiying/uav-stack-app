@@ -11,7 +11,7 @@ class Log extends Component {
       <Layout>
         <Helmet
           title={formatMessage({
-            id: "pageTitle.log"
+            id: "log.pageTitle"
           })}
         />
         <Content style={{ margin: "0 16px" }}>

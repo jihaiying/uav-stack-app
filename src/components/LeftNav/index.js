@@ -17,7 +17,7 @@
 import React, { Component } from "react";
 // import { FormattedMessage } from "react-intl";
 import { Layout, Menu, Icon, Avatar } from "antd";
-import css from "./assets/LeftNav.css";
+import css from "./LeftNav.css";
 import { NavLink, withRouter } from "react-router-dom";
 import config from "../../config";
 
