@@ -29,7 +29,11 @@ class GodEye extends Component {
       <div>
         <AppHeader />
         <Layout style={{ minHeight: "100vh", paddingTop: "52px" }}>
-          <LeftNav data={appData} />
+          <LeftNav
+            name={appData.name}
+            icon={appData.icon}
+            menu={appData.menu}
+          />
           <Switch>
             <Route exact path="/appHub/godEye/" component={WelcomeComponent} />
             <Route path="/appHub/godEye/log" component={LogComponent} />

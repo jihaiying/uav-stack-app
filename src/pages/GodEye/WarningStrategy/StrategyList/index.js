@@ -26,7 +26,7 @@ class StrategyList extends Component {
         {
           title: "策略名称",
           dataIndex: "name",
-          width: "35%",
+          width: 35,
           render: (text, record) => {
             let className;
             switch (text.type) {
@@ -82,7 +82,7 @@ class StrategyList extends Component {
         {
           title: "描述",
           dataIndex: "desc",
-          width: "16%",
+          width: 16,
           className: css.tdCon,
           render: (text, record) => {
             return (
@@ -95,7 +95,7 @@ class StrategyList extends Component {
         {
           title: "归属用户",
           dataIndex: "email",
-          width: "16%",
+          width: 16,
           className: css.tdCon,
           render: (text, record) => {
             return (
@@ -108,7 +108,7 @@ class StrategyList extends Component {
         {
           title: "修改时间",
           dataIndex: "date",
-          width: "16%",
+          width: 16,
           className: css.tdCon,
           render: (text, record) => {
             return (
@@ -120,7 +120,7 @@ class StrategyList extends Component {
         },
         {
           title: "预警启停",
-          width: "8%",
+          width: 8,
           dataIndex: "opened",
           className: css.tdCon,
           render: () => (
@@ -145,7 +145,7 @@ class StrategyList extends Component {
             </div>
           ),
           key: "action",
-          width: "9%",
+          width: 9,
           className: css.tdCon,
           render: () => (
             <div>
@@ -169,16 +169,16 @@ class StrategyList extends Component {
     };
   }
 
-  delete(id) {
+  delete = id => {
     message.info("已删除" + id);
-  }
+  };
 
   render() {
-    const { actions } = this.props;
+    const { userInit, actions } = this.props;
     const { crumbsData, columns } = this.state;
     return (
       <div>
-        <Crumbs data={crumbsData} />
+        <Crumbs crumbs={crumbsData.crumbs} />
         <Content style={{ padding: "18px 10px" }}>
           <div>
             <Link to="/appHub/godEye/warningStrategy/add">
@@ -198,13 +198,15 @@ class StrategyList extends Component {
             </Button>
             <div style={{ clear: "both" }} />
           </div>
-          <TableComponent
-            columns={columns}
-            getTotalFunc={actions.getStrategyTotal}
-            getDataFunc={actions.getStrategy}
-            rowKey="id"
-            reducedHeight={280}
-          />
+          {userInit && (
+            <TableComponent
+              columns={columns}
+              getTotalFunc={actions.getStrategyTotal}
+              getDataFunc={actions.getStrategy}
+              rowKey="id"
+              reducedHeight={280}
+            />
+          )}
         </Content>
       </div>
     );
@@ -212,7 +214,9 @@ class StrategyList extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    userInit: state.globalData.get("userInit")
+  };
 }
 
 function mapDispatchToProps(dispatch) {

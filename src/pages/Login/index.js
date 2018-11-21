@@ -3,16 +3,27 @@ import { Helmet } from "react-helmet";
 import { injectIntl, intlShape } from "react-intl";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import { withRouter } from "react-router-dom";
-import Storage from "../../lib/storage";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as globalActionCreator from "../../global/globalActions";
 const FormItem = Form.Item;
 
 class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
+    const { actions } = this.props;
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
-        Storage.set("apphubtoken", "454575687124323472");
+        const userInfo = {
+          apphubtoken: "111111111111111111111",
+          user: {
+            name: "纪海英",
+            sex: "女",
+            email: "haiyingji@creditease.cn"
+          }
+        };
+        actions.setUserInfo(userInfo);
         this.props.history.push("/appHub");
       }
     });
@@ -86,4 +97,22 @@ Login.propTypes = {
   intl: intlShape.isRequired
 };
 
-export default injectIntl(Form.create()(withRouter(Login)));
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(
+      {
+        setUserInfo: globalActionCreator.setUserInfo
+      },
+      dispatch
+    )
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(injectIntl(Form.create()(withRouter(Login))));

@@ -1,21 +1,20 @@
 /*
 * 面包屑组件
 * @params
-* data = {
-*   crumbs: [ // 面包屑数据
-*     {
-*       word: "预警策略管理", // 文字
-*       link: "/appHub/godEye/warningStrategy", // 链接
-*     }
-*   ],
-*   descLink: "https://uavorg.github.io/documents/uavdoc_useroperation/28.html#%E5%88%9B%E5%BB%BA", // 当前页面使用说明链接
-*   quit: true // 是否有退回按钮
-* }
+* crumbs: [ // 面包屑数据
+*   {
+*     word: "预警策略管理", // 文字
+*     link: "/appHub/godEye/warningStrategy", // 链接
+*   }
+* ]
+* descLink: "https://uavorg.github.io/documents/uavdoc_useroperation/28.html#%E5%88%9B%E5%BB%BA" // 当前页面使用说明链接
+* quit: true // 是否有退回按钮
 * */
 import React, { Component } from "react";
 import { Breadcrumb, Icon } from "antd";
 import { withRouter, Link } from "react-router-dom";
 import css from "./Crumbs.css";
+import PropTypes from "prop-types";
 
 class Crumbs extends Component {
   goBack() {
@@ -23,11 +22,11 @@ class Crumbs extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { crumbs, descLink, quit } = this.props;
     return (
       <div className={css.container}>
         <Breadcrumb separator=">" className={css.crumbs}>
-          {data.crumbs.map(
+          {crumbs.map(
             (item, key) =>
               item.link ? (
                 <Breadcrumb.Item key={item.word}>
@@ -39,8 +38,8 @@ class Crumbs extends Component {
           )}
         </Breadcrumb>
         <div className={css.right}>
-          {data.descLink ? (
-            <a href={data.descLink} target="_blank">
+          {descLink ? (
+            <a href={descLink} target="_blank">
               <Icon
                 type="question-circle"
                 theme="outlined"
@@ -48,7 +47,7 @@ class Crumbs extends Component {
               />
             </a>
           ) : null}
-          {data.quit ? (
+          {quit ? (
             <Icon
               type="arrow-right"
               theme="outlined"
@@ -61,5 +60,16 @@ class Crumbs extends Component {
     );
   }
 }
+
+Crumbs.propTypes = {
+  crumbs: PropTypes.array.isRequired,
+  descLink: PropTypes.string,
+  quit: PropTypes.bool
+};
+
+Crumbs.defaultProps = {
+  descLink: "",
+  quit: false
+};
 
 export default withRouter(Crumbs);

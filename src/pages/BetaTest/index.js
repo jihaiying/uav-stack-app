@@ -27,7 +27,11 @@ class BetaTest extends Component {
     return (
       <div>
         <Layout style={{ minHeight: "100vh" }}>
-          <LeftNav appData={appData} />
+          <LeftNav
+            name={appData.name}
+            icon={appData.icon}
+            menu={appData.menu}
+          />
           <Switch>
             <Route exact path="/appHub/betaTest" component={WelcomeComponent} />
             <Route path="/appHub/betaTest/log" component={LogComponent} />

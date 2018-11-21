@@ -18,7 +18,7 @@ class LanguageSwitchBtn extends Component {
 
 function mapStateToProps(state) {
   return {
-    lang: state.globalReducer.get("lang")
+    lang: state.globalData.get("lang")
   };
 }
 

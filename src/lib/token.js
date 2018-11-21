@@ -5,7 +5,7 @@
 export function getToken() {
   let apphubtoken = "";
   try {
-    apphubtoken = window.localStorage.getItem("apphubtoken") || "";
+    apphubtoken = window.localStorage.getItem("uav.apphub.user.token") || "";
   } catch (e) {}
   return apphubtoken;
 }

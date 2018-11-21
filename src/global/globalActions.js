@@ -13,3 +13,11 @@ export function switchLanguage() {
     type: SWITCH_LANGUAGE
   };
 }
+
+export const SET_USERINFO = Symbol("SET_USERINFO");
+export function setUserInfo(userInfo) {
+  return {
+    type: SET_USERINFO,
+    userInfo
+  };
+}

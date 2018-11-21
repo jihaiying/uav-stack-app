@@ -19,7 +19,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use();
+server.use(router);
 server.listen(3004, () => {
   console.log("JSON Server is running");
 });

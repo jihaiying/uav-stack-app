@@ -9,7 +9,8 @@ const defaultState = {
   winWidth: 0,
   isMobile: false,
   winHeight: 0,
-  lang: lang ? lang : LANGUAGES.cn
+  lang: lang ? lang : LANGUAGES.cn,
+  userInit: false
 };
 
 const initialState = fromJS(defaultState);
@@ -26,6 +27,10 @@ export default function(state = initialState, action = {}) {
         state.get("lang") === LANGUAGES.en ? LANGUAGES.cn : LANGUAGES.en;
       Storage.set("lang", nextLang);
       return state.set("lang", nextLang);
+    case ActionType.SET_USERINFO:
+      Storage.set("uav.apphub.user.token", action.userInfo.apphubtoken);
+      Storage.set("user", JSON.stringify(action.userInfo.user));
+      return state.set("userInit", true);
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
 import Loading from "../components/Loading/index";
-import { getToken } from "../lib/token";
+import { connect } from "react-redux";
 const LoginComponent = Loadable({
   loader: () => import("../pages/Login/index"),
   loading: Loading
@@ -23,25 +23,37 @@ const NoMatchComponent = Loadable({
   loader: () => import("../components/NoMatch/index"),
   loading: Loading
 });
+const PleaseLoginComponent = Loadable({
+  loader: () => import("../components/PleaseLogin/index"),
+  loading: Loading
+});
 
 class App extends Component {
-  componentDidMount() {
-    if (!getToken()) {
-      // this.props.history.push("/login");
-    }
-  }
-
   render() {
+    const { userInit, location } = this.props;
+    const ignore = location.pathname === "/appHub/godEye/warningStrategy/add";
     return (
-      <Switch>
-        <Route path="/login" component={LoginComponent} />
-        <Route exact path="/appHub" component={AppHubComponent} />
-        <Route path="/appHub/godEye" component={GodEyeComponent} />
-        <Route path="/appHub/betaTest" component={BetaTestComponent} />
-        <Route component={NoMatchComponent} />
-      </Switch>
+      <div>
+        {userInit || ignore ? (
+          <Switch>
+            <Route path="/login" component={LoginComponent} />
+            <Route exact path="/appHub" component={AppHubComponent} />
+            <Route path="/appHub/godEye" component={GodEyeComponent} />
+            <Route path="/appHub/betaTest" component={BetaTestComponent} />
+            <Route component={NoMatchComponent} />
+          </Switch>
+        ) : (
+          <PleaseLoginComponent />
+        )}
+      </div>
     );
   }
 }
 
-export default withRouter(App);
+function mapStateToProps(state) {
+  return {
+    userInit: state.globalData.get("userInit")
+  };
+}
+
+export default withRouter(connect(mapStateToProps)(App));
