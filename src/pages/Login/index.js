@@ -96,10 +96,6 @@ Login.propTypes = {
   intl: intlShape.isRequired
 };
 
-function mapStateToProps(state) {
-  return {};
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(
@@ -112,6 +108,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(injectIntl(Form.create()(withRouter(Login))));
