@@ -62,7 +62,12 @@ class Crumbs extends Component {
 }
 
 Crumbs.propTypes = {
-  crumbs: PropTypes.array.isRequired,
+  crumbs: PropTypes.arrayOf(
+    PropTypes.shape({
+      word: PropTypes.string.isRequired,
+      link: PropTypes.string
+    })
+  ).isRequired,
   descLink: PropTypes.string,
   quit: PropTypes.bool
 };
