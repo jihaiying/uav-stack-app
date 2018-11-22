@@ -139,7 +139,7 @@ class TableComponent extends Component {
 
 function mapStateToProps(state) {
   return {
-    winHeight: state.globalData.get("winHeight")
+    winHeight: state.global.get("winHeight")
   };
 }
 

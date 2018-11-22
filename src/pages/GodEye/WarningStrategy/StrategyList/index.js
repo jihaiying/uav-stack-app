@@ -215,7 +215,7 @@ class StrategyList extends Component {
 
 function mapStateToProps(state) {
   return {
-    userInit: state.globalData.get("userInit")
+    userInit: state.global.get("userInit")
   };
 }
 
