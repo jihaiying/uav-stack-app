@@ -24,7 +24,6 @@ class Login extends Component {
           }
         };
         actions.setUserInfo(userInfo);
-        this.props.history.push("/appHub");
       }
     });
   };

@@ -23,10 +23,6 @@ const NoMatchComponent = Loadable({
   loader: () => import("../components/NoMatch/index"),
   loading: Loading
 });
-const PleaseLoginComponent = Loadable({
-  loader: () => import("../components/PleaseLogin/index"),
-  loading: Loading
-});
 
 class App extends Component {
   render() {
@@ -36,14 +32,13 @@ class App extends Component {
       <div>
         {userInit || ignore ? (
           <Switch>
-            <Route path="/login" component={LoginComponent} />
             <Route exact path="/appHub" component={AppHubComponent} />
             <Route path="/appHub/godEye" component={GodEyeComponent} />
             <Route path="/appHub/betaTest" component={BetaTestComponent} />
             <Route component={NoMatchComponent} />
           </Switch>
         ) : (
-          <PleaseLoginComponent />
+          <LoginComponent />
         )}
       </div>
     );
