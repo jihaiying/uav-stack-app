@@ -4,6 +4,7 @@ import Crumbs from "../../../../components/Crumbs";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import * as warningStrategyActions from "../api";
+import * as actions from "./actions";
 import { connect } from "react-redux";
 import css from "./StrategyList.css";
 import cx from "classnames";
@@ -173,8 +174,13 @@ class StrategyList extends Component {
     message.info("已删除" + id);
   };
 
+  add = () => {
+    const { actions } = this.props;
+    actions.addNum({ num: 2 });
+  };
+
   render() {
-    const { userInit, actions } = this.props;
+    const { userInit, actions, num } = this.props;
     const { crumbsData, columns } = this.state;
     return (
       <div>
@@ -197,6 +203,10 @@ class StrategyList extends Component {
               显示全部
             </Button>
             <div style={{ clear: "both" }} />
+            <Button type="primary" onClick={this.add}>
+              redux example
+            </Button>
+            <div>num: {num}</div>
           </div>
           {userInit && (
             <TableComponent
@@ -215,7 +225,8 @@ class StrategyList extends Component {
 
 function mapStateToProps(state) {
   return {
-    userInit: state.global.get("userInit")
+    userInit: state.global.get("userInit"),
+    num: state.strategyList.get("num")
   };
 }
 
@@ -224,7 +235,8 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(
       {
         getStrategy: warningStrategyActions.getStrategy,
-        getStrategyTotal: warningStrategyActions.getStrategyTotal
+        getStrategyTotal: warningStrategyActions.getStrategyTotal,
+        addNum: actions.addNum
       },
       dispatch
     )
