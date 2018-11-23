@@ -3,6 +3,8 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
 import Loading from "../components/Loading/index";
 import { connect } from "react-redux";
+import { injectIntl } from "react-intl";
+
 const LoginComponent = Loadable({
   loader: () => import("../pages/Login/index"),
   loading: Loading
@@ -51,4 +53,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(App));
+export default injectIntl(withRouter(connect(mapStateToProps)(App)));
